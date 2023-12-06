@@ -49,6 +49,5 @@ jobs:
         ssh -o StrictHostKeyChecking=no -i key.pem $USER@$HOST << 'END'
         echo "testing"
         END
-            
 
       
