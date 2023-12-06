@@ -46,8 +46,6 @@ jobs:
       run: |
         echo "$KEY" > key.pem
         chmod 400 key.pem 
-        ssh -o StrictHostKeyChecking=no -i key.pem $USER@$HOST << 'END'
-        echo "testing"
-        END
+        ssh -o StrictHostKeyChecking=no -i key.pem $USER@$HOST && echo deploy
 
       
