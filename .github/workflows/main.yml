@@ -46,6 +46,4 @@ jobs:
       run: |
         echo "$KEY" > key.pem
         chmod 400 key.pem 
-        ssh -o StrictHostKeyChecking=no -i key.pem $USER@$HOST && echo deploy
-
-      
+        ssh -o StrictHostKeyChecking=no -i key.pem $USER@$HOST && sudo apt udate && sudo apt pyhton3-pip && pip install gunicorn && gunicorn -w 4 -b 0.0.0.0:8000 Flaskchess:main && sudo apt install nginx && sudo /etc/nginx/sites=enable/Flaskchess && sudo ln -s /etc/nginx/sites-enabled/Flaskchess /etc/nginx/sites-enabled && sudo systemclt restart nginx && sudo ufw allow 80 && sudo ufw enable
