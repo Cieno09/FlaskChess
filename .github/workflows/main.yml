@@ -46,4 +46,6 @@ jobs:
       run: |
         echo "$KEY" > key.pem
         chmod 400 key.pem 
-        ssh -o StrictHostKeyChecking=no -i key.pem $USER@$HOST 'bash -s' < shell.sh
+        ssh -o StrictHostKeyChecking=no -i key.pem $USER@$HOST <<EOF
+           sh shell.sh
+        EOF
